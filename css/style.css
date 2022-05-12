@@ -9,16 +9,15 @@
 }
 
 .grid {
-    width: 534px;
-    height: 534px;
-    border: 1px black solid;
+    width: 600px;
+    height: 600px;
+    border: 0.5px #000 solid;
     display: flex;
     flex-wrap: wrap;
 }
 
 .square {
-    border: 1px black solid;
-    margin: 1px;
+    border: 0.5px black solid;
 }
 
 .square:hover {

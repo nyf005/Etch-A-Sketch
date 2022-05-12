@@ -1,11 +1,16 @@
-const grid = document.querySelector(".grid");
+createGrid(100);
 
-for (let i = 0; i < 16; i++) {
-  for (let j = 0; j < 16; j++) {
-    let square = document.createElement("div");
-    square.classList.add("square");
-    square.style.width = `${500 / 16}px`;
-    square.style.height = `${500 / 16}px`;
-    grid.appendChild(square);
+function createGrid(size) {
+  const grid = document.querySelector(".grid");
+  for (let i = 0; i < size; i++) {
+    for (let j = 0; j < size; j++) {
+      let square = document.createElement("div");
+      square.classList.add("square");
+
+      // Calculate the width and height of a square in %
+      square.style.width = `${100 / size}%`;
+      square.style.height = `${100 / size}%`;
+      grid.appendChild(square);
+    }
   }
 }
