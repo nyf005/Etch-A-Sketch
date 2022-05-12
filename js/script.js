@@ -1,10 +1,27 @@
-createGrid(100);
+let penToggle = false;
+const grid = document.querySelector(".grid");
+
+createGrid(24);
+
+// Get Nodelist of squares
+const squares = document.querySelectorAll(".square");
+
+squares.forEach((square) => {
+  square.addEventListener("click", (e) => {
+    togglePen(e.target);
+  });
+
+  square.addEventListener("mouseenter", (e) => {
+    if (penToggle) {
+      changeColor(e.target);
+    }
+  });
+});
 
 function createGrid(size) {
-  const grid = document.querySelector(".grid");
   for (let i = 0; i < size; i++) {
     for (let j = 0; j < size; j++) {
-      let square = document.createElement("div");
+      const square = document.createElement("div");
       square.classList.add("square");
 
       // Calculate the width and height of a square in %
@@ -13,4 +30,13 @@ function createGrid(size) {
       grid.appendChild(square);
     }
   }
+}
+
+function changeColor(square) {
+  square.style.backgroundColor = "blue";
+}
+
+function togglePen(square) {
+  penToggle = !penToggle;
+  changeColor(square);
 }
