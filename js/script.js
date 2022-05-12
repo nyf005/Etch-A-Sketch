@@ -13,7 +13,7 @@ squares.forEach((square) => {
 
   square.addEventListener("mouseenter", (e) => {
     if (penToggle) {
-      changeColor(e.target);
+      drawOnGrid(e.target);
     }
   });
 });
@@ -32,11 +32,11 @@ function createGrid(size) {
   }
 }
 
-function changeColor(square) {
+function drawOnGrid(square) {
   square.style.backgroundColor = "blue";
 }
 
 function togglePen(square) {
   penToggle = !penToggle;
-  changeColor(square);
+  drawOnGrid(square);
 }
