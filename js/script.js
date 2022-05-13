@@ -14,7 +14,7 @@ squares.forEach((square) => {
 
   square.addEventListener("mouseenter", (e) => {
     if (penToggle) {
-      drawOnGrid(e.target);
+      darwOnSquare(e.target);
     }
   });
 });
@@ -25,6 +25,18 @@ gridSizeInput.addEventListener("change", (e) => {
 
   clearGrid();
   createGrid(e.target.value);
+
+  squares.forEach((square) => {
+    square.addEventListener("click", (e) => {
+      togglePen(e.target);
+    });
+
+    square.addEventListener("mouseenter", (e) => {
+      if (penToggle) {
+        darwOnSquare(e.target);
+      }
+    });
+  });
 });
 
 function createGrid(size) {
@@ -42,14 +54,13 @@ function createGrid(size) {
 
   // Get Nodelist of squares
   squares = document.querySelectorAll(".square");
-  console.log([...squares].length);
 }
 
 function clearGrid() {
   squares.forEach((square) => grid.removeChild(square));
 }
 
-function drawOnGrid(square) {
+function darwOnSquare(square) {
   square.style.backgroundColor = "blue";
 }
 
@@ -57,5 +68,5 @@ function togglePen(square) {
   penToggle = !penToggle;
 
   // Change square color even when clicking to deactivate pen
-  drawOnGrid(square);
+  darwOnSquare(square);
 }
