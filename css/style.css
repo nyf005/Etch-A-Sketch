@@ -8,9 +8,29 @@
     width: 80vw;
 }
 
+header {
+    height: 20vh;
+}
+
+section {
+    height: 70vh;
+}
+
+section .container {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+.controls {
+    width: 200px;
+}
+
 .grid {
-    width: 600px;
-    height: 600px;
+    width: 60vh;
+    height: 60vh;
     border: 0.5px #000 solid;
     display: flex;
     flex-wrap: wrap;
@@ -22,4 +42,7 @@
 
 .square:hover {
     background-color: brown;
+}
+footer {
+    height: 10vh;
 }
