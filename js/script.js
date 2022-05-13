@@ -31,7 +31,7 @@ function createGrid(size) {
     }
   }
 
-  // Get Nodelist of squares
+  // Get current Nodelist of squares
   squares = document.querySelectorAll(".square");
 }
 
@@ -39,6 +39,7 @@ function clearGrid() {
   squares.forEach((square) => grid.removeChild(square));
 }
 
+// Allow to draw on the wholw grid
 function drawOnGrid(squares) {
   squares.forEach((square) => {
     square.addEventListener("click", (e) => {
@@ -53,8 +54,9 @@ function drawOnGrid(squares) {
   });
 }
 
+// Allow to change color of an individual square
 function darwOnSquare(square) {
-  square.style.backgroundColor = "blue";
+  square.style.backgroundColor = "black";
 }
 
 function togglePen(square) {
