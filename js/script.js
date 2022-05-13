@@ -6,18 +6,7 @@ const gridSizeInput = document.querySelector("#grid-size input");
 const gridSizeInfos = document.querySelector("#grid-size span");
 
 createGrid(gridSizeInput.value);
-
-squares.forEach((square) => {
-  square.addEventListener("click", (e) => {
-    togglePen(e.target);
-  });
-
-  square.addEventListener("mouseenter", (e) => {
-    if (penToggle) {
-      darwOnSquare(e.target);
-    }
-  });
-});
+drawOnGrid(squares);
 
 gridSizeInput.addEventListener("change", (e) => {
   // Update grid size control infos
@@ -26,17 +15,7 @@ gridSizeInput.addEventListener("change", (e) => {
   clearGrid();
   createGrid(e.target.value);
 
-  squares.forEach((square) => {
-    square.addEventListener("click", (e) => {
-      togglePen(e.target);
-    });
-
-    square.addEventListener("mouseenter", (e) => {
-      if (penToggle) {
-        darwOnSquare(e.target);
-      }
-    });
-  });
+  drawOnGrid(squares);
 });
 
 function createGrid(size) {
@@ -58,6 +37,20 @@ function createGrid(size) {
 
 function clearGrid() {
   squares.forEach((square) => grid.removeChild(square));
+}
+
+function drawOnGrid(squares) {
+  squares.forEach((square) => {
+    square.addEventListener("click", (e) => {
+      togglePen(e.target);
+    });
+
+    square.addEventListener("mouseenter", (e) => {
+      if (penToggle) {
+        darwOnSquare(e.target);
+      }
+    });
+  });
 }
 
 function darwOnSquare(square) {
