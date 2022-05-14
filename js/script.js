@@ -15,6 +15,7 @@ const randomBtn = document.getElementById("random");
 const darkenBtn = document.getElementById("darken");
 const lightenBtn = document.getElementById("lighten");
 const eraserBtn = document.getElementById("eraser");
+const clearBtn = document.getElementById("clear");
 
 createGrid(gridSizeInput.value);
 drawOnGrid(squares);
@@ -84,6 +85,13 @@ eraserBtn.addEventListener("click", (e) => {
   lightenBtn.classList.remove("clicked");
 });
 
+clearBtn.addEventListener("click", () => {
+  const currentGridSize = gridSizeInput.value;
+  clearGrid();
+  createGrid(currentGridSize);
+  drawOnGrid(squares);
+});
+
 // FUNCTIONS
 
 function createGrid(size) {
@@ -109,7 +117,7 @@ function clearGrid() {
   squares.forEach((square) => grid.removeChild(square));
 }
 
-// Allow to draw on the wholw grid
+// Allow to draw on the whole grid
 function drawOnGrid(squares) {
   squares.forEach((square) => {
     square.addEventListener("click", (e) => {
@@ -160,7 +168,6 @@ function darkenSquare(square) {
   currentColorValues[2] -= currentColorValues[2] * 0.1;
 
   square.style.backgroundColor = `rgb(${currentColorValues[0]}, ${currentColorValues[1]}, ${currentColorValues[2]})`;
-  console.log(square.style.backgroundColor);
 }
 
 function lightenSquare(square) {
