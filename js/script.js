@@ -3,6 +3,7 @@ let penToggle = false;
 let isRandomActive = false;
 let isDarkenActive = false;
 let isLightenActive = false;
+let isEraserActive = false;
 
 const grid = document.querySelector(".grid");
 
@@ -36,6 +37,9 @@ randomBtn.addEventListener("click", () => {
 
   isLightenActive = false;
   lightenBtn.classList.remove("clicked");
+
+  isEraserActive = false;
+  eraseBtn.classList.remove("clicked");
 });
 
 darkenBtn.addEventListener("click", () => {
@@ -47,6 +51,9 @@ darkenBtn.addEventListener("click", () => {
 
   isLightenActive = false;
   lightenBtn.classList.remove("clicked");
+
+  isEraserActive = false;
+  eraseBtn.classList.remove("clicked");
 });
 
 lightenBtn.addEventListener("click", () => {
@@ -58,6 +65,23 @@ lightenBtn.addEventListener("click", () => {
 
   isDarkenActive = false;
   darkenBtn.classList.remove("clicked");
+
+  isEraserActive = false;
+  eraseBtn.classList.remove("clicked");
+});
+
+eraserBtn.addEventListener("click", (e) => {
+  isEraserActive = !isEraserActive;
+  eraseBtn.classList.toggle("clicked");
+
+  isRandomActive = false;
+  randomBtn.classList.remove("clicked");
+
+  isDarkenActive = false;
+  darkenBtn.classList.remove("clicked");
+
+  isLightenActive = false;
+  lightenBtn.classList.remove("clicked");
 });
 
 // FUNCTIONS
@@ -104,7 +128,11 @@ function drawOnSquare(square) {
   if (isRandomActive) {
     square.style.backgroundColor = `rgb(${randomRGBVal()}, ${randomRGBVal()}, ${randomRGBVal()})`;
   } else if (isDarkenActive) {
-    console.log(square.style.backgroundColor);
+    darkenSquare(square);
+  } else if (isLightenActive) {
+    lightenSquare(square);
+  } else if (isEraserActive) {
+    eraseSquare(square);
   } else {
     square.style.backgroundColor = "black";
   }
@@ -119,4 +147,50 @@ function togglePen(square) {
 
 function randomRGBVal() {
   return Math.floor(Math.random() * 255);
+}
+
+function darkenSquare(square) {
+  let currentColorValues;
+  // Get RGB values of current color
+  currentColorValues = square.style.backgroundColor.slice(4, -1).split(",");
+  if (currentColorValues == "") {
+    currentColorValues[0] = 225.5;
+    currentColorValues[1] = 225.5;
+    currentColorValues[2] = 225.5;
+  } else {
+    currentColorValues[0] -= currentColorValues[0] * 0.1;
+    currentColorValues[1] -= currentColorValues[1] * 0.1;
+    currentColorValues[2] -= currentColorValues[2] * 0.1;
+  }
+
+  square.style.backgroundColor = `rgb(${currentColorValues[0]}, ${currentColorValues[1]}, ${currentColorValues[2]})`;
+}
+
+function lightenSquare(square) {
+  let currentColorValues;
+  // Get RGB values of current color
+  var rgbColor = square.style.backgroundColor;
+  // rgbArr = rgbColor
+  //   .substring(4, rgbColor.length - 1)
+  //   .replace(/ /g, "")
+  //   .split(",");
+
+  console.log(rgbColor);
+
+  // currentColorValues = square.style.backgroundColor.slice(4, -1).split(",");
+  // if (currentColorValues == "") {
+  //   currentColorValues[0] = 5;
+  //   currentColorValues[1] = 5;
+  //   currentColorValues[2] = 5;
+  // } else {
+  //   currentColorValues[0] += currentColorValues[0] * 0.1;
+  //   currentColorValues[1] += currentColorValues[1] * 0.1;
+  //   currentColorValues[2] += currentColorValues[2] * 0.1;
+  // }
+
+  // square.style.backgroundColor = `rgb(${currentColorValues[0]}, ${currentColorValues[1]}, ${currentColorValues[2]})`;
+}
+
+function eraseSquare(square) {
+  square.style.backgroundColor = "#fff";
 }
