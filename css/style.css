@@ -52,16 +52,17 @@ section .container {
 }
 
 .controls, .grid {
-    background-color: #f7941d;
+    background-color: #7a8189;
     padding: 1em;
-    border-radius: 20px;
+    border-radius: 10px;
 }
 
 .controls {
     width: 200px;
     height: 60vh;
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
+    justify-content: space-around;
     align-items: center;
 }
 
@@ -82,9 +83,30 @@ section .container {
     background-color: #000;
 }
 
- input {
+ input, button {
     width: 100%;
+    margin: .2em 0;
 }
+
+button {
+    border: 2px #f7941d solid;
+    border-radius: 4px;
+    font-size: 16px;
+    padding: 8px 15px;
+    background-color: #fff;
+}
+
+.clicked {
+    border: 2px #000 solid;
+    background-color: #f7941d;
+    color: #fff;
+}
+
+.divider {
+    width: 100%;
+    border: 0.5px black dashed;
+}
+
 footer {
     height: 10vh;
 }

@@ -23,15 +23,35 @@
     <section>
       <div class="container">
         <div class="controls">
+          <div>
+            <button id="color-picker">Pick a color</button>
+            <button id="fill">Fill</button>
+          </div>
+          <div class="divider"></div>
+          <div>
+            <!-- <button id="color-picker">Pick a color</button> -->
+            <button id="random" class="clicked">Random</button>
+            <button id="darken">Darken</button>
+            <button id="lighten">Lighten</button>
+            <button id="eraser">Eraser</button>
+          </div>
+          <div class="divider"></div>
           <div id="grid-size">
-            <input
-              type="range"
-              min="1"
-              max="100"
-              value="16"
-              placeholder="Grid Size"
-            />
-            <p>Grid size: <span>16 x 16</span></p>
+            <div>
+              <input
+                type="range"
+                min="1"
+                max="100"
+                value="16"
+                placeholder="Grid Size"
+              />
+              <p>Grid size: <span>16 x 16</span></p>
+            </div>
+          </div>
+          <div class="divider"></div>
+          <div>
+            <button id="remove-lines">Remove lines</button>
+            <button id="clear">Clear grid</button>
           </div>
         </div>
         <div class="grid"></div>

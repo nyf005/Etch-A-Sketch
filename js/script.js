@@ -5,6 +5,11 @@ const grid = document.querySelector(".grid");
 const gridSizeInput = document.querySelector("#grid-size input");
 const gridSizeInfos = document.querySelector("#grid-size span");
 
+const randomBtn = document.getElementById("random");
+const darkenBtn = document.getElementById("darken");
+const lightenBtn = document.getElementById("lighten");
+const eraserBtn = document.getElementById("eraser");
+
 createGrid(gridSizeInput.value);
 drawOnGrid(squares);
 
@@ -14,9 +19,10 @@ gridSizeInput.addEventListener("change", (e) => {
 
   clearGrid();
   createGrid(e.target.value);
-
   drawOnGrid(squares);
 });
+
+// FUNCTIONS
 
 function createGrid(size) {
   for (let i = 0; i < size; i++) {
@@ -36,6 +42,7 @@ function createGrid(size) {
 }
 
 function clearGrid() {
+  penToggle = false;
   squares.forEach((square) => grid.removeChild(square));
 }
 
@@ -48,14 +55,14 @@ function drawOnGrid(squares) {
 
     square.addEventListener("mouseenter", (e) => {
       if (penToggle) {
-        darwOnSquare(e.target);
+        drawOnSquare(e.target);
       }
     });
   });
 }
 
 // Allow to change color of an individual square
-function darwOnSquare(square) {
+function drawOnSquare(square) {
   square.style.backgroundColor = "black";
 }
 
@@ -63,5 +70,5 @@ function togglePen(square) {
   penToggle = !penToggle;
 
   // Change square color even when clicking to deactivate pen
-  darwOnSquare(square);
+  drawOnSquare(square);
 }
