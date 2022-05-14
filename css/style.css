@@ -51,13 +51,13 @@ section .container {
     gap: 40px;
 }
 
-.controls, .grid {
+#controls, #grid {
     background-color: #7a8189;
     padding: 1em;
     border-radius: 10px;
 }
 
-.controls {
+#controls {
     width: 200px;
     height: 60vh;
     display: flex;
@@ -66,7 +66,7 @@ section .container {
     align-items: center;
 }
 
-.grid {
+#grid {
     width: 60vh;
     height: 60vh;
     border: 0.5px #000 solid;

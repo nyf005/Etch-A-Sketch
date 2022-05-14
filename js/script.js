@@ -5,7 +5,7 @@ let isDarkenActive = false;
 let isLightenActive = false;
 let isEraserActive = false;
 
-const grid = document.querySelector(".grid");
+const grid = document.getElementById("grid");
 
 const gridSizeInput = document.querySelector("#grid-size input");
 const gridSizeInfos = document.querySelector("#grid-size span");
