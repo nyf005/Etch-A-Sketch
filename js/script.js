@@ -1,10 +1,15 @@
 let squares;
 let penToggle = false;
+let isRandomActive = false;
+let isDarkenActive = false;
+let isLightenActive = false;
+
 const grid = document.querySelector(".grid");
 
 const gridSizeInput = document.querySelector("#grid-size input");
 const gridSizeInfos = document.querySelector("#grid-size span");
 
+const btns = document.querySelectorAll("button");
 const randomBtn = document.getElementById("random");
 const darkenBtn = document.getElementById("darken");
 const lightenBtn = document.getElementById("lighten");
@@ -20,6 +25,39 @@ gridSizeInput.addEventListener("change", (e) => {
   clearGrid();
   createGrid(e.target.value);
   drawOnGrid(squares);
+});
+
+randomBtn.addEventListener("click", () => {
+  isRandomActive = !isRandomActive;
+  randomBtn.classList.toggle("clicked");
+
+  isDarkenActive = false;
+  darkenBtn.classList.remove("clicked");
+
+  isLightenActive = false;
+  lightenBtn.classList.remove("clicked");
+});
+
+darkenBtn.addEventListener("click", () => {
+  isDarkenActive = !isDarkenActive;
+  darkenBtn.classList.toggle("clicked");
+
+  isRandomActive = false;
+  randomBtn.classList.remove("clicked");
+
+  isLightenActive = false;
+  lightenBtn.classList.remove("clicked");
+});
+
+lightenBtn.addEventListener("click", () => {
+  isLightenActive = !isLightenActive;
+  lightenBtn.classList.toggle("clicked");
+
+  isRandomActive = false;
+  randomBtn.classList.remove("clicked");
+
+  isDarkenActive = false;
+  darkenBtn.classList.remove("clicked");
 });
 
 // FUNCTIONS
@@ -63,7 +101,13 @@ function drawOnGrid(squares) {
 
 // Allow to change color of an individual square
 function drawOnSquare(square) {
-  square.style.backgroundColor = "black";
+  if (isRandomActive) {
+    square.style.backgroundColor = `rgb(${randomRGBVal()}, ${randomRGBVal()}, ${randomRGBVal()})`;
+  } else if (isDarkenActive) {
+    console.log(square.style.backgroundColor);
+  } else {
+    square.style.backgroundColor = "black";
+  }
 }
 
 function togglePen(square) {
@@ -71,4 +115,8 @@ function togglePen(square) {
 
   // Change square color even when clicking to deactivate pen
   drawOnSquare(square);
+}
+
+function randomRGBVal() {
+  return Math.floor(Math.random() * 255);
 }

@@ -96,6 +96,11 @@ button {
     background-color: #fff;
 }
 
+button:hover {
+    background-color: rgb(247, 148, 29, .2); 
+    color: #fff; 
+}
+
 .clicked {
     border: 2px #000 solid;
     background-color: #f7941d;
