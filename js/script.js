@@ -90,6 +90,7 @@ function createGrid(size) {
   for (let i = 0; i < size; i++) {
     for (let j = 0; j < size; j++) {
       const square = document.createElement("div");
+      square.style.backgroundColor = "#ffffff";
       square.classList.add("square");
 
       // Calculate the width and height of a square in %
@@ -134,7 +135,7 @@ function drawOnSquare(square) {
   } else if (isEraserActive) {
     square.style.backgroundColor = "#ffffff";
   } else {
-    square.style.backgroundColor = "black";
+    square.style.backgroundColor = "#000000";
   }
 }
 
@@ -151,42 +152,33 @@ function randomRGBVal() {
 
 function darkenSquare(square) {
   let currentColorValues;
+
   // Get RGB values of current color
   currentColorValues = square.style.backgroundColor.slice(4, -1).split(",");
-  if (currentColorValues == "") {
-    currentColorValues[0] = 225.5;
-    currentColorValues[1] = 225.5;
-    currentColorValues[2] = 225.5;
-  } else {
-    currentColorValues[0] -= currentColorValues[0] * 0.1;
-    currentColorValues[1] -= currentColorValues[1] * 0.1;
-    currentColorValues[2] -= currentColorValues[2] * 0.1;
-  }
+  currentColorValues[0] -= currentColorValues[0] * 0.1;
+  currentColorValues[1] -= currentColorValues[1] * 0.1;
+  currentColorValues[2] -= currentColorValues[2] * 0.1;
 
   square.style.backgroundColor = `rgb(${currentColorValues[0]}, ${currentColorValues[1]}, ${currentColorValues[2]})`;
+  console.log(square.style.backgroundColor);
 }
 
 function lightenSquare(square) {
   let currentColorValues;
-  // Get RGB values of current color
-  var rgbColor = square.style.backgroundColor;
-  // rgbArr = rgbColor
-  //   .substring(4, rgbColor.length - 1)
-  //   .replace(/ /g, "")
-  //   .split(",");
+  let r, b, g;
+  // Get RGB string of current color
+  currentColorValues = square.style.backgroundColor.slice(4, -1).split(",");
 
-  console.log(rgbColor);
+  // Get respective RGB values
+  // This step is necessary because we are adding values so Javascript does not concatenate values
+  r = Number(currentColorValues[0]);
+  b = Number(currentColorValues[1]);
+  g = Number(currentColorValues[2]);
 
-  // currentColorValues = square.style.backgroundColor.slice(4, -1).split(",");
-  // if (currentColorValues == "") {
-  //   currentColorValues[0] = 5;
-  //   currentColorValues[1] = 5;
-  //   currentColorValues[2] = 5;
-  // } else {
-  //   currentColorValues[0] += currentColorValues[0] * 0.1;
-  //   currentColorValues[1] += currentColorValues[1] * 0.1;
-  //   currentColorValues[2] += currentColorValues[2] * 0.1;
-  // }
+  // Adjust RGB values of square by adding 10% of current value
+  r < 255 ? (r += r * 0.1) : (r = 255);
+  b < 255 ? (b += b * 0.1) : (b = 255);
+  g < 255 ? (g += g * 0.1) : (g = 255);
 
-  // square.style.backgroundColor = `rgb(${currentColorValues[0]}, ${currentColorValues[1]}, ${currentColorValues[2]})`;
+  square.style.backgroundColor = `rgb(${r}, ${b}, ${g})`;
 }
