@@ -10,6 +10,8 @@ const grid = document.querySelector(".grid");
 const gridSizeInput = document.querySelector("#grid-size input");
 const gridSizeInfos = document.querySelector("#grid-size span");
 
+const colorPicker = document.getElementById("color-picker");
+
 const btns = document.querySelectorAll("button");
 const randomBtn = document.getElementById("random");
 const darkenBtn = document.getElementById("darken");
@@ -143,7 +145,7 @@ function drawOnSquare(square) {
   } else if (isEraserActive) {
     square.style.backgroundColor = "#ffffff";
   } else {
-    square.style.backgroundColor = "#000000";
+    square.style.backgroundColor = colorPicker.value;
   }
 }
 
@@ -163,9 +165,9 @@ function darkenSquare(square) {
 
   // Get RGB values of current color
   currentColorValues = square.style.backgroundColor.slice(4, -1).split(",");
-  currentColorValues[0] -= currentColorValues[0] * 0.1;
-  currentColorValues[1] -= currentColorValues[1] * 0.1;
-  currentColorValues[2] -= currentColorValues[2] * 0.1;
+  currentColorValues[0] -= currentColorValues[0] * 0.25;
+  currentColorValues[1] -= currentColorValues[1] * 0.25;
+  currentColorValues[2] -= currentColorValues[2] * 0.25;
 
   square.style.backgroundColor = `rgb(${currentColorValues[0]}, ${currentColorValues[1]}, ${currentColorValues[2]})`;
 }
@@ -183,9 +185,9 @@ function lightenSquare(square) {
   g = Number(currentColorValues[2]);
 
   // Adjust RGB values of square by adding 10% of current value
-  r < 255 ? (r += r * 0.1) : (r = 255);
-  b < 255 ? (b += b * 0.1) : (b = 255);
-  g < 255 ? (g += g * 0.1) : (g = 255);
+  r < 255 ? (r += r * 0.25) : (r = 255);
+  b < 255 ? (b += b * 0.25) : (b = 255);
+  g < 255 ? (g += g * 0.25) : (g = 255);
 
   square.style.backgroundColor = `rgb(${r}, ${b}, ${g})`;
 }

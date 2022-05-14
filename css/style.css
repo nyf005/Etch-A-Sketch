@@ -74,6 +74,18 @@ section .container {
     flex-wrap: wrap;
 }
 
+#choose-color {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#grid-size {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .square {
     border: 0.5px black solid;
 }
@@ -85,6 +97,11 @@ section .container {
  input, button {
     width: 100%;
     margin: .2em 0;
+}
+
+#color-picker {
+    width: 24px;
+    height: 24px;
 }
 
 button {

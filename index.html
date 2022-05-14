@@ -23,9 +23,9 @@
     <section>
       <div class="container">
         <div class="controls">
-          <div>
-            <button id="color-picker">Pick a color</button>
-            <button id="fill">Fill</button>
+          <div id="choose-color">
+            <input type="color" id="color-picker" />
+            <label for="color-picker">Pick a color</label>
           </div>
           <div class="divider"></div>
           <div>
@@ -37,22 +37,18 @@
           </div>
           <div class="divider"></div>
           <div id="grid-size">
-            <div>
-              <input
-                type="range"
-                min="1"
-                max="100"
-                value="16"
-                placeholder="Grid Size"
-              />
-              <p>Grid size: <span>16 x 16</span></p>
-            </div>
+            <input
+              type="range"
+              min="1"
+              max="100"
+              value="16"
+              id="grid-range"
+              placeholder="Grid Size"
+            />
+            <label for="grid-range">Grid size: <span>16 x 16</span></label>
           </div>
           <div class="divider"></div>
-          <div>
-            <button id="remove-lines">Remove lines</button>
-            <button id="clear">Clear grid</button>
-          </div>
+          <button id="clear">Clear grid</button>
         </div>
         <div class="grid"></div>
       </div>
