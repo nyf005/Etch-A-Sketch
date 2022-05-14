@@ -16,6 +16,12 @@ body {
     width: 80vw;
 }
 
+
+.title {
+    text-align: center;
+    padding: 1em;
+    color: #fff;
+}
 header, section, footer {
     display: flex;
     justify-content: center;
@@ -48,7 +54,7 @@ section .container {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 40px;
+    /* gap: 40px; */
 }
 
 #controls, #grid {
@@ -58,17 +64,19 @@ section .container {
 }
 
 #controls {
-    width: 200px;
+    width: 13vw;
     height: 60vh;
+    border-top-right-radius: 0%;
+    border-bottom-right-radius: 0%;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
 }
 
 #grid {
-    width: 60vh;
-    height: 60vh;
+    width: 40vw;
+    height: 40vw;
     border: 0.5px #000 solid;
     display: flex;
     flex-wrap: wrap;
