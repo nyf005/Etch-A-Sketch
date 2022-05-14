@@ -39,7 +39,7 @@ randomBtn.addEventListener("click", () => {
   lightenBtn.classList.remove("clicked");
 
   isEraserActive = false;
-  eraseBtn.classList.remove("clicked");
+  eraserBtn.classList.remove("clicked");
 });
 
 darkenBtn.addEventListener("click", () => {
@@ -53,7 +53,7 @@ darkenBtn.addEventListener("click", () => {
   lightenBtn.classList.remove("clicked");
 
   isEraserActive = false;
-  eraseBtn.classList.remove("clicked");
+  eraserBtn.classList.remove("clicked");
 });
 
 lightenBtn.addEventListener("click", () => {
@@ -67,12 +67,12 @@ lightenBtn.addEventListener("click", () => {
   darkenBtn.classList.remove("clicked");
 
   isEraserActive = false;
-  eraseBtn.classList.remove("clicked");
+  eraserBtn.classList.remove("clicked");
 });
 
 eraserBtn.addEventListener("click", (e) => {
   isEraserActive = !isEraserActive;
-  eraseBtn.classList.toggle("clicked");
+  eraserBtn.classList.toggle("clicked");
 
   isRandomActive = false;
   randomBtn.classList.remove("clicked");
@@ -132,7 +132,7 @@ function drawOnSquare(square) {
   } else if (isLightenActive) {
     lightenSquare(square);
   } else if (isEraserActive) {
-    eraseSquare(square);
+    square.style.backgroundColor = "#ffffff";
   } else {
     square.style.backgroundColor = "black";
   }
@@ -189,8 +189,4 @@ function lightenSquare(square) {
   // }
 
   // square.style.backgroundColor = `rgb(${currentColorValues[0]}, ${currentColorValues[1]}, ${currentColorValues[2]})`;
-}
-
-function eraseSquare(square) {
-  square.style.backgroundColor = "#fff";
 }
