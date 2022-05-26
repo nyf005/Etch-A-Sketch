@@ -8,18 +8,18 @@ body {
     background-color: #272e38;
     font-family: 'Courier New', Courier, monospace;
     color: #000;
-    font-size: small;
+    font-size: x-small;
     font-weight: bold;
 }
 
 .container {
-    width: 80vw;
+    width: 90vw;
 }
 
 
 .title {
     text-align: center;
-    padding: 1em;
+    padding: 1px;
     color: #fff;
 }
 header, section, footer {
@@ -37,16 +37,16 @@ header .container, footer .container {
 }
 
 header {
-    height: 15vh; 
+    height: 10vh; 
 }
 
 header h1 {
     font-family: 'VT323', monospace;
-    font-size: 60px;
+    /* font-size: 100%; */
 }
 
 section {
-    height: 75vh;
+    height: 85vh;
 }
 
 section .container {
@@ -64,14 +64,15 @@ section .container {
 }
 
 #controls {
-    max-width: 15vw;
+    max-width: 20%;
     max-height: 55vh;
     border-top-right-radius: 0%;
     border-bottom-right-radius: 0%;
     display: flex;
     flex-direction: column;
-    gap: .5em;
-    align-items: center;
+    gap: 5px;
+    justify-content: center;
+    /* align-items: center; */
 }
 
 #grid {
@@ -84,6 +85,8 @@ section .container {
 
 #choose-color {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
     gap: 10px;
 }
@@ -102,6 +105,11 @@ section .container {
     background-color: #000;
 }
 
+#mode {
+    display: flex;
+    flex-direction: column;
+}
+
  input, button {
     width: 100%;
     margin: .2em 0;
@@ -115,8 +123,7 @@ section .container {
 button {
     border: 2px #f7941d solid;
     border-radius: 4px;
-    font-size: 1em;
-    padding: .5vh;
+    padding: 1vh;
     background-color: #fff;
 }
 
@@ -137,5 +144,5 @@ button:hover {
 }
 
 footer {
-    height: 10vh;
+    height: 5vh;
 }
