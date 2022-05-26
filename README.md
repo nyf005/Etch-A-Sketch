@@ -6,8 +6,8 @@ This project is a browser version of something between a sketchpad and an Etch-A
 
 ## Links
 
-[Assignment Link!](https://www.theodinproject.com/lessons/foundations-etch-a-sketch)
-[Try Etch A Sketch here!](https://nyf005.github.io/Etch-A-Sketch/)
+- [Assignment Link!](https://www.theodinproject.com/lessons/foundations-etch-a-sketch)
+- [Try Etch A Sketch here!](https://nyf005.github.io/Etch-A-Sketch/)
 
 ## Features
 
